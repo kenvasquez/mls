@@ -6,9 +6,15 @@ class Students extends CI_Controller{
 		$this->load->model('student_model');
 	}
 
-	public function index(){	
-		$this->load->view('includes/header');
-		$this->load->view('includes/footer');
+	public function index(){
+		$q['student'] = $this->student_model->unpaid();
+
+		if($q['student'] != NULL){
+			$this->load->view('dashboard', $q);
+		}
+		else{
+			$this->index();
+		}
 	}
 
 	public function search_student(){

@@ -28,41 +28,38 @@
 	</style>
 </head>
 <body id = 'main-body'>
-	<div class = 'container-fluid'>
-		<div class="nav navbar-inverse navbar-fixed-top navbar-collapse" id = 'container'>
+	<div class="container-fluid">
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
-		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-top-navbar-collapse-1">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 		        <span class="sr-only">Toggle navigation</span>
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
+		      <a class="navbar-brand" href="<?php echo base_url()?>">AMTS</a>
 		    </div>
-
-		    <header class="collapse navbar-collapse" id="bs-top-navbar-collapse-1">
-		    	<div class = 'navbar col-lg-5'>
-		    		<a href="<?php echo base_url()?>"><img class="pull-left"  id = 'img-logo' src = "<?php echo base_url('images/amts-logo.png')?>"></a>
-		    		<div class="col-lg-6">
-					<div class="input-group" id="searchbar">
-						<?php echo form_open('students/search_student');?>
-						<input type="text" id="search" class="form-control " name="search" placeholder="ID Number or Last Name">
-						<?php echo form_close();?>
-					</div>
-				</div> 
-		    	</div> 
-		      <ul class="nav navbar-nav navbar-right" id='right-nav'>
-		      	<li><a href="<?php echo base_url()?>"><img id = 'img-home' src = "<?php echo base_url('images/house4.png')?>"> Home</a></li>
-		        <li><a href="<?php echo base_url('users/logout')?>"><img id = 'img-logout' src = "<?php echo base_url('images/logout.png')?>"> Logout</a></li>
-		      </ul>		  	
-		    </header>
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <form class="navbar-form navbar-left" action="<?php echo base_url('students/search_student')?>" method="post" accept-charset="utf-8" role="search">
+		        <div class="form-group">
+		          <input type="text" class="form-control" placeholder="Search...." name="search">
+		        </div>
+		        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+		      </form>
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="<?php echo base_url()?>"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-wrench"></span> System Utilities <span class="caret"></span></a>
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Add Account</a></li>
+		            <li><a href="#">Another action</a></li>
+		            <li><a href="#">Something else here</a></li>
+		            <li class="divider"></li>
+		            <li><a href="#"><span class="glyphicon glyphicon-share"></span> Logout</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+		    </div>
 		  </div>
-		</div>
-		<div class="container-fluid" id="mid-body">
-			<div class='row col-lg-3' id="ml-body">
-				<h1>Hello World!</h1>
-				<h2><a href="<?php echo base_url('students/unpaid')?>">UNPAID</a></h2>
-				<h2><a href="<?php echo base_url('students/balance')?>">WITH BALANCE</a></h2>
-				<h2><a href="<?php echo base_url('students/summary')?>">SUMMARY</a></h2>
-			</div>
-		</div>
+		</nav>
